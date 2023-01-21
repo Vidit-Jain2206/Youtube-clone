@@ -26,7 +26,7 @@ const Header = () => {
             (event?.key === "Enter" || event === "searchButton") &&
             searchQuery?.length > 0
         ) {
-            navigate(`/searchResult/${searchQuery}`);
+            navigate(`/searchResults/${searchQuery}`);
         }
     };
 
@@ -97,7 +97,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
-                    <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg" />
+                    <img src="https://img.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg?w=2000" />
                 </div>
             </div>
         </div>
