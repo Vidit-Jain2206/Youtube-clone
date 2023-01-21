@@ -22,7 +22,7 @@ const LeftNav = () => {
   const NavElemnts = categories.map((Element) => {
     return <React.Fragment  key={Element.icon}>
       <LeftNavMenuItems
-      text={Element.type == "home" ? "Home" : Element.name}
+      text={Element.type === "home" ? "Home" : Element.name}
       icon={Element.icon}
       action={() => {
         handleOnClick(Element.name,Element.type);
