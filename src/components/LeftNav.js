@@ -19,23 +19,23 @@ const LeftNav = () => {
     
   }
 
-  // const NavElemnts = categories.map((Element,index) => {
-  //   return <React.Fragment  key={index}>
-  //     <LeftNavMenuItems
-  //     text={Element.type === "home" ? "Home" : Element.name}
-  //     icon={Element.icon}
-  //     action={() => {
-  //       handleOnClick(Element.name,Element.type);
-  //       navigate("/");}}
-  //     className={selectCategories === Element.name?"bg-white/[0.15]":""}
+  const NavElemnts = categories.map((Element,index) => {
+    return <React.Fragment  key={index}>
+      <LeftNavMenuItems
+      text={Element.type === "home" ? "Home" : Element.name}
+      icon={Element.icon}
+      action={() => {
+        handleOnClick(Element.name,Element.type);
+        navigate("/");}}
+      className={selectCategories === Element.name?"bg-white/[0.15]":""}
      
       
-  //   />
-  //     {Element.divider && (
-  //       <hr className='my-5 bg-white/[0.2]' />
-  //     )}
-  //   </React.Fragment>
-  // })
+    />
+      {Element.divider && (
+        <hr className='my-5 bg-white/[0.2]' />
+      )}
+    </React.Fragment>
+  })
 
 
 
@@ -46,28 +46,8 @@ const LeftNav = () => {
             }`}
         >
             <div className="flex px-5 flex-col">
-                {categories.map((item) => {
-                    return (
-                        <React.Fragment key={item.name}>
-                            <LeftNavMenuItems
-                                text={item.type === "home" ? "Home" : item.name}
-                                icon={item.icon}
-                                action={() => {
-                                    handleOnClick(item.name, item.type);
-                                    navigate("/");
-                                }}
-                                className={`${
-                                  selectCategories === item.name
-                                        ? "bg-white/[0.15]"
-                                        : ""
-                                }`}
-                            />
-                            {item.divider && (
-                                <hr className="my-5 border-white/[0.2]" />
-                            )}
-                        </React.Fragment>
-                    );
-                })}
+                
+                {NavElemnts}
                 <hr className="my-5 border-white/[0.2]" />
                 <div className="text-white/[0.5] text-[12px]">
                     Clone by: JS Dev Hindi
