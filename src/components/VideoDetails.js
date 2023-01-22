@@ -56,7 +56,7 @@ const VideoDetails = () => {
             {video?.title}
           </div>
 
-          <div className="flex  justify-between mt-4 md:flex-row ">
+          <div className="flex flex-col justify-between mt-4 md:flex-row ">
             <div className="flex">
               <div className="flex items-start">
                 <div className="h-11 w-11 overflow-hidden flex rounded-full ">
@@ -65,12 +65,12 @@ const VideoDetails = () => {
               </div>
 
               <div className="flex flex-col ml-3">
-                <div className="text-white text-md font-semibold flex items-center">
+                <div className="text-white text-[0.9rem] font-semibold flex items-center">
                 {video?.author?.title}
                 {video?.author?.badges[0]?.type ==="VERIFIED_CHANNEL" && <BsFillCheckCircleFill className='text-white/[0.5] text-[12px] ml-1'/>}
                 </div>
 
-                <div className="text-white/[0.7] text-sm">
+                <div className="text-white/[0.7] text-[0.7rem]">
                   {video?.author?.stats?.subscribersText}
                 </div>
               </div>
@@ -78,13 +78,13 @@ const VideoDetails = () => {
 
             <div className="flex text-white mt-4 md:mt-0">
               <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
-                <AiOutlineLike className="text-xl text-white mr-2"/>
-                <span>{`${abbreviateNumber(video?.stats?.likes,2)} likes`} </span>
+                <AiOutlineLike className="text-[1.5rem] text-white mr-2"/>
+                <span className="text-[12px]">{`${abbreviateNumber(video?.stats?.likes,2)} likes`} </span>
               </div>
 
               <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15] ml-4">
                 <AiOutlineLike className="text-xl text-white mr-2"/>
-                <span>{`${abbreviateNumber(video?.stats?.views,2)} views`} </span>
+                <span className="text-[12px]">{`${abbreviateNumber(video?.stats?.views,2)} views`} </span>
               </div>
             </div>
           </div>
