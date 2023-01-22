@@ -7,7 +7,7 @@ import VideoLengthBadge from '../shared/VideoLengthBadge';
 const VideoCard = (props) => {
   return (
     <Link to={`/video/${props.video?.videoId}`}>
-      <div className="flex flex-col mb-8">
+      <div className="flex flex-col mb-8 ">
         <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden ">
           <img className="h-full w-full object-cover" src={props.video?.thumbnails[0]?.url} alt="Vidit" />
           {props.video?.lengthSeconds && <VideoLengthBadge time={props.video?.lengthSeconds}/>}

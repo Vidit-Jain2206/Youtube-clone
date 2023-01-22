@@ -1,9 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+
+import { fetchDataFromApi } from "../utils/api";
+import { Context } from "../context/contextApi";
+import LeftNav from "./LeftNav";
+import SearchResultVideoCard from "./SearchResultVideoCard";
 
 const SearchResult = () => {
+    const [result, setResult] = useState();
+    const { searchQuery } = useParams();
+    const { setLoading } = useContext(Context);
+
+    useEffect(() => {
+        document.getElementById("root").classList.remove("custom-h");
+        fetchSearchResults();
+    }, [searchQuery]);
+
+    const fetchSearchResults = () => {
+        setLoading(true);
+        fetchDataFromApi(`search/?q=${searchQuery}`).then((res) => {
+            setResult(res?.contents);
+            setLoading(false);
+        });
+    };
+
   return (
-    <div>SearchResult</div>
+    <>
+    <div className='flex flex-row h-[calc(100%-56px)]'>
+      <LeftNav/>
+      <div className="grow bg-black h-full overflow-y-auto w-[calc(100%-240px)]">
+        <div className="grid grid-cols-1 gap-2 p-5">
+        {result?.map((item,index)=>{
+          if(item?.type!=="video")return false;
+          return <SearchResultVideoCard video={item?.video} key={index}/>
+        })}
+        </div>
+      </div>
+    </div>
+   
+    </>
+   
   )
 }
 
-export default SearchResult
+export default SearchResult;
+
+

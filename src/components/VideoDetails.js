@@ -34,7 +34,6 @@ const VideoDetails = () => {
   const fetchRelatedVideos=()=>{
     setLoading(true);
     fetchDataFromApi(`video/related-contents/?id=${id}`).then((res)=>{
-      console.log(res);
       setRelatedVideo(res);
       setLoading(false);
     })
@@ -49,7 +48,10 @@ const VideoDetails = () => {
             controls
             width="100%"
             height="100%"
-            style={{ backgroundColor:"#000000"}}/>
+            style={{ backgroundColor:"#000000"}}
+            playing={true}
+            />
+            
           </div>
 
           <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
